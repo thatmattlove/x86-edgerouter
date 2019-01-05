@@ -18,7 +18,7 @@ I attempted to just #yolo and basically boot the machine up, and start with the 
 ## Intel Driver Installation
 I first attempted to install the drivers for the X722 controllers using the posted drivers on [Intel.com](https://downloadcenter.intel.com/download/22283/Intel-Ethernet-Adapter-Complete-Driver-Pack), but I was never able to `insmod ./i40e.ko` due to a complaint stating `insmod: error inserting './i40e.ko': Invalid module format.`. It seemed that the version on Intel.com (`i40e-2.7.27`) was specific to Linux kernel version `4.15.0-29-generic`, and Ubuntu 18.04 bionic is `4.15.0-**43**-generic` (eye roll). After digging through the README of the incorrect driver, I found:
 
-```
+```text
 Due to the continuous development of the Linux kernel, the drivers are updated
  more often than the bundled releases. The latest driver can be found on
  http://e1000.sourceforge.net (and also on http://downloadcenter.intel.com.)

@@ -28,7 +28,7 @@ So, I checked the [SourceForge repo](https://sourceforge.net/projects/e1000/) an
 
 After downloading this and following the README instructions to install, slighly modified by [this nice little guide](http://ask.xmodulo.com/download-install-ixgbe-driver-ubuntu-debian.html), I was able to successfully install the drivers. Brief steps below:
 
-```bash
+```console
 # tar zxf i40e-2.7.29.tar.gz
 # cd i40e-2.7.29/src/
 # make install
@@ -45,7 +45,7 @@ After downloading this and following the README instructions to install, slighly
 
 Even though I'm running Ubuntu 18.04 (bionic), I did in fact add the 16.04 (xenial) repo per the quick start instructions:
 
-```bash
+```console
 # cat /etc/apt/sources.list.d/99fd.io.list
 deb [trusted=yes] https://nexus.fd.io/content/repositories/fd.io.ubuntu.xenial.main/ ./
 ```
@@ -54,14 +54,13 @@ I first attempted to, again, #yolo and manually change this to the bionic versio
 
 However, I was never able to install `vpp-plugins` due to it complaining about `libssl`:
 
-```bash
+```console
 Depends: libssl1.0.0 (>= 1.0.0) but it is not installable
 ```
 
 ...even though I had it installed:
 
-```bash
-libssl1.1/bionic-updates,bionic-security,now 1.1.0g-2ubuntu4.3 amd64 [installed]
+```console
 # apt list | grep libssl1.
 libssl1.0.0/bionic-updates,bionic-security,now 1.0.2n-1ubuntu5.2 amd64 [installed]
 libssl1.1/bionic-updates,bionic-security,now 1.1.0g-2ubuntu4.3 amd64 [installed]
@@ -69,7 +68,7 @@ libssl1.1/bionic-updates,bionic-security,now 1.1.0g-2ubuntu4.3 amd64 [installed]
 
 So, after some reseach (read: Googleing), I installed the following package manually and was able to install `vpp-plugins`
 
-```bash
+```console
 # wget http://security.ubuntu.com/ubuntu/pool/universe/m/mbedtls/libmbedcrypto0_2.2.1-2ubuntu0.2_amd64.deb
 # dpkg -i libmbedcrypto0_2.2.1-2ubuntu0.2_amd64.deb
 # apt install -y vpp-plugins

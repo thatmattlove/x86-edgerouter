@@ -5,7 +5,7 @@ Supermicro `5019D-FN8TP` with default onboard network interfaces, which are:
 * 2x Intel 10 Gbps X722 (10GBASE-T)
 * 2x Intel 10 Gbps X722 (10GbE SFP)
 
-===
+---
 
 # Intel Driver
 ## Reference

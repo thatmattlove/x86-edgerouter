@@ -54,7 +54,7 @@ I first attempted to, again, #yolo and manually change this to the bionic versio
 
 However, I was never able to install `vpp-plugins` due to it complaining about `libssl`:
 
-```console
+```text
 Depends: libssl1.0.0 (>= 1.0.0) but it is not installable
 ```
 

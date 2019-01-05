@@ -9,4 +9,4 @@ This is essentially a running notebook of steps, caveats, pointers, etc. as I wo
 
 When it's done, tuned, tested, etc. I'll transform this into an actual guide of some kind, and possibly contribute it in some way to the [FRRouting Documentation](http://docs.frrouting.org) if welcome.
 
-The notes/docs themselves can be found in the [docs](https://github.com/checktheroads/x86-edgerouter/docs) directory of this repository.
+The notes/docs themselves can be found in the [docs](https://github.com/checktheroads/x86-edgerouter/tree/master/docs) directory of this repository.

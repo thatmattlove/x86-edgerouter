@@ -168,6 +168,18 @@ dev 0000:b7:00.3 {
 
 I've placed the full `startup.conf` in the [repo](https://github.com/checktheroads/x86-edgerouter/tree/master/docs/startup.conf) for reference.
 
+Additionally, the Intel i40e driver requires the vfio_pci driver to be loaded. You can load it once with:
+
+```console
+# modprobe vfio_pci
+```
+
+Or ensure it always loads at startup:
+
+```console
+# echo "vfio_pci" >> /etc/modules
+```
+
 ## Configuration
 
 Enable tap-inject:

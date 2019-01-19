@@ -1,0 +1,23 @@
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+#
+# enp101s0f0
+    enp101s0f0:
+      match:
+        macaddress: 98:03:9b:3b:8a:e6
+      set-name: eth-25-1-1
+      dhcp4: no
+      dhcp6: no
+      accept-ra: no
+#
+# enp101s0f1
+    enp101s0f1:
+      match:
+        macaddress: 98:03:9b:3b:8a:e7
+      set-name: eth-25-1-2
+      dhcp4: no
+      dhcp6: no
+      accept-ra: no
+#

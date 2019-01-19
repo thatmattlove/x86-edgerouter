@@ -1,0 +1,11 @@
+[Unit]
+Description=Out of Band Management
+After=network.target
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/bin/bash /opt/scripts/oob_mgmt_1.sh
+
+[Install]
+WantedBy=multi-user.target

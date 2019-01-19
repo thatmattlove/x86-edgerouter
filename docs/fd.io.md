@@ -69,13 +69,14 @@ It'd be great if we could follow the FD.io quick start guide and simply `apt ins
 Clone the `vpp` and `vppsb` (sandbox) repos:
 
 ```console
-# git clone https://gerrit.fd.io/r/vpp
-# git clone https://gerrit.fd.io/r/vppsb
+# git clone https://gerrit.fd.io/r/vpp /opt/vpp
+# git clone https://gerrit.fd.io/r/vppsb /opt/vppsb
 ```
 
 Begin the build process:
 
 ```console
+# cd /opt/vpp
 # make install-dep; make bootstrap; make build
 ```
 
@@ -101,7 +102,8 @@ Add these symlinks:
 Build VPP:
 
 ```console
-# cd build-root
+# cd /opt/vpp/build-root
+# sh ./vagrant/build.sh
 # make V=0 PLATFORM=vpp TAG=vpp_debug netlink-install router-install
 ```
 

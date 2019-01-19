@@ -1,0 +1,23 @@
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+#
+# loopback1
+    loopback1:
+      match:
+        macaddress: 00:00:ff:00:00:01
+      set-name: lo-1
+      dhcp4: no
+      dhcp6: no
+      accept-ra: no
+#
+# loopback2
+    loopback2:
+      match:
+        macaddress: 00:00:ff:00:00:02
+      set-name: lo-2
+      dhcp4: no
+      dhcp6: no
+      accept-ra: no
+#

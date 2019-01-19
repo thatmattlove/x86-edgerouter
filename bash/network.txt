@@ -1,0 +1,77 @@
+# Rules to highlight interface names
+
+include "common"
+
+# Special: Color all lines that don't match any of the rules below red
+/.*/ plain
+
+# custom interfaces
+/(eth-)([0-9]{1,3})(-[0-9]{1,3})(-[0-9]{1,99})/ {
+  default
+  1 blue bold
+  2 yellow bold
+  3 red bold
+  4 red bold
+  break         # this is merely to skip the matches below
+}
+
+# loopbacks with number
+/((lo)([0-9]+))/
+{
+  default blue bold
+  1 blue bold
+  2 magenta bold
+  break         # this is merely to skip the matches below
+}
+
+# IPv4 addresses & CIDR Mask
+/([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})(\/[0-9]|[1-2][0-9]|3[0-2])?/ {
+  default green bold
+  1 green bold
+  2 green bold
+  3 green bold
+  4 green bold
+  5 cyan bold
+  break         # this is merely to skip the matches below
+}
+
+# IPv4 address Only
+/([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})?/ {
+  default green bold
+  1 green bold
+  2 green bold
+  3 green bold
+  4 green bold
+  5 cyan bold
+  break         # this is merely to skip the matches below
+}
+
+# IPv6 address & CIDR Mask
+/(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))(\/[0-9]{1,3})/
+{
+  default yellow bold
+  31 magenta bold
+  break         # this is merely to skip the matches below
+}
+
+# IPv6 address Only
+/(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))/
+{
+  default yellow bold
+  break         # this is merely to skip the matches below
+}
+
+# inet
+/(inet\b)/ {
+  default
+  1 red underline
+  break         # this is merely to skip the matches below
+}
+
+# inet6
+/(inet)(6)/ {
+  default
+  1 red underline
+  2 blue underline
+  break         # this is merely to skip the matches below
+}

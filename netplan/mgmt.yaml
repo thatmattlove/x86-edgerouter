@@ -1,0 +1,14 @@
+# This file describes the network interfaces available on your system
+# For more information, see netplan(5).
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    eno1:
+      addresses: [ 10.11.253.231/24 ]
+      gateway4: 10.11.253.1
+      nameservers:
+          search: [ az01.oscloud.io ]
+          addresses:
+              - "10.11.6.11"
+              - "10.11.6.12"

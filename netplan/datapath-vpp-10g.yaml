@@ -1,0 +1,41 @@
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+#
+# eno5
+    eno5:
+      match:
+        macaddress: ac:1f:6b:75:2d:88
+      set-name: eth-10-0-5
+      dhcp4: no
+      dhcp6: no
+      accept-ra: no
+#
+# eno6
+    eno6:
+      match:
+        macaddress: ac:1f:6b:75:2d:89
+      set-name: eth-10-0-6
+      dhcp4: no
+      dhcp6: no
+      accept-ra: no
+#
+# eno7
+    eno7:
+      match:
+        macaddress: ac:1f:6b:75:2d:8a
+      set-name: eth-10-0-7
+      dhcp4: no
+      dhcp6: no
+      accept-ra: no
+#
+# eno8
+    eno8:
+      match:
+        macaddress: ac:1f:6b:75:2d:8b
+      set-name: eth-10-0-8
+      dhcp4: no
+      dhcp6: no
+      accept-ra: no
+#

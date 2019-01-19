@@ -1,0 +1,23 @@
+## mgmt namespace
+#
+# vars
+IFACE='eno1' # management interface
+IP='10.11.253.231' # management IP
+MASK='24' # CIDR mask, e.g. /24
+GATEWAY='10.11.253.1' # default gateway
+DNS1='10.11.6.11' # primary DNS
+DNS2='10.11.6.12' # secondary DNS
+#
+# config
+ip netns add mgmt && echo "Added mgmt namespace"
+ip link set $IFACE netns mgmt && echo "Moved $IFACE to mgmt namespace"
+ip netns exec mgmt ip link set $IFACE up && echo "Brought up $IFACE in mgmt namespace"
+ip netns exec mgmt ip addr add "$IP/$MASK" dev $IFACE && echo "Added IP $IP/$MASK to $IFACE in mgmt netspace"
+ip netns exec mgmt ip route add default via $GATEWAY && echo "Added Default Gateway $GATEWAY in mgmt namespace"
+echo "nameserver $DNS1" > /etc/netns/mgmt/resolv.conf
+echo "nameserver $DNS2" >> /etc/netns/mgmt/resolv.conf
+echo "Added nameservers to /etc/netns/mgmt/resolv.conf"
+#
+# services
+ip netns exec mgmt /usr/sbin/sshd -o PidFile=/run/sshd-mgmt.pid
+#

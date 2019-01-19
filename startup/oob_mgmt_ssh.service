@@ -1,0 +1,19 @@
+[Unit]
+Description=Out of Band Management OpenSSH
+After=ssh.service
+
+[Service]
+User=root
+ExecStart=/sbin/ip netns exec mgmt /usr/sbin/sshd -o PidFile=/run/sshd-mgmt.pid
+ExecReload=/usr/sbin/sshd -t
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+RestartPreventExitStatus=255
+Type=notify
+RuntimeDirectory=sshd
+RuntimeDirectoryMode=0755
+
+[Install]
+WantedBy=multi-user.target
+
